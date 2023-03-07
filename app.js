@@ -6,7 +6,7 @@ function Employee(employeeId,fullName, department, level, img=null) {
     this.department = department;
     this.level = level;
     this.img = img;
-    this.Salary =Salary;
+    
    
     employeeArr.push(this);
 }
@@ -30,8 +30,8 @@ Employee.prototype.salaryLevel= function() {
        }
    
      let rand=Math.floor(Math.random() * (max - min) ) + min;
-     this.Salary=rand-(rand*.075);
-     return this.Salary;
+     this.salaryLevel=rand-(rand*.075);
+     return this.salaryLevel;
 
       }
 
