@@ -11,27 +11,29 @@ function Employee(employeeId,fullName, department, level, img=null) {
     employeeArr.push(this);
 }
 
-Employee.prototype.salaryLevel= function() {
+Employee.prototype.salary= function() {
+    let rand=Math.floor(Math.random() * (max - min) ) + min;
+     this.salary=rand-(rand*.075);
+
        if ( this.level=="senior"){
         min=1500;
         max=2000;
         
        }
-       else if(this.level="Mid-senior"){
+       else if(this.level=="Mid-senior"){
         min=1000;
         max=1500;
        
        }
     
-       else if(this.level="Junior"){
+       else if(this.level=="Junior"){
         min=500;
         max=1000;
         
        }
    
-     let rand=Math.floor(Math.random() * (max - min) ) + min;
-     this.salaryLevel=rand-(rand*.075);
-     return this.salaryLevel;
+     
+     return this.salary;
 
       }
 
@@ -39,20 +41,20 @@ Employee.prototype.salaryLevel= function() {
       Employee.prototype.render= function(){
 
         document.write(`employee name:${this.fullName}`)
-      document.write(`employee salary:${this.salaryLevel}`);
+      document.write(`employee salary:${this.salary}`);
        
 
 
 
       }
 
-      let Ghazi =new Employee (1000,"Ghazi Samer","Administration","img","Senior");
-      let Lana =new Employee (1001,"Lana Ali","Finance","img","Senior");
-      let Tamara=new Employee (1002,"Tamara Ayoub","Marketing","img","Senior");
-      let Safi=new Employee (1003,"Safi Walid","Administration","img","Mid-senior");
-      let Omar =new Employee (1004,"Omar Zaid","Development","img","Senior");
-      let Rana=new Employee (1005,"Rana Saleh","Development","img","Junior");
-      let Hadi =new Employee (1006,"Hadi Ahmad","Finance","img","Mid-senior");
+      let Ghazi =new Employee (1000,"Ghazi Samer","Administration","Senior");
+      let Lana =new Employee (1001,"Lana Ali","Finance","Senior");
+      let Tamara=new Employee (1002,"Tamara Ayoub","Marketing","Senior");
+      let Safi=new Employee (1003,"Safi Walid","Administration","Mid-senior");
+      let Omar =new Employee (1004,"Omar Zaid","Development","Senior");
+      let Rana=new Employee (1005,"Rana Saleh","Development","Junior");
+      let Hadi =new Employee (1006,"Hadi Ahmad","Finance","Mid-senior");
       Ghazi.render();
       Lana.render();
       Tamara.render();
