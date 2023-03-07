@@ -39,13 +39,7 @@ Employee.prototype.salaryLevel= function() {
       Employee.prototype.render= function(){
 
         document.write(`employee name:${this.fullName}<br> employee salary:${this.Salary}`);
-        Ghazi.render();
-        Lana.render();
-        Tamara.render();
-        Safi.render();
-        Omar.render();
-        Rana.render();
-        Hadi.render();
+       
 
 
 
@@ -58,3 +52,10 @@ Employee.prototype.salaryLevel= function() {
       let Omar =new Employee (1004,"Omar Zaid","Development","img","Senior");
       let Rana=new Employee (1005,"Rana Saleh","Development","img","Junior");
       let Hadi =new Employee (1006,"Hadi Ahmad","Finance","img","Mid-senior");
+      Ghazi.render();
+      Lana.render();
+      Tamara.render();
+      Safi.render();
+      Omar.render();
+      Rana.render();
+      Hadi.render();
