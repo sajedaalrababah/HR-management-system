@@ -1,7 +1,7 @@
 'use strict';
 let employeeArr=[];
 function Employee(fullName, department, level, img) {
-    this.employeeId = 0;
+    this.employeeId =this.employeeId;
     this.fullName = fullName;
     this.department = department;
     this.level = level;
@@ -38,7 +38,7 @@ Employee.prototype.salaryLevel= function() {
 
       Employee.prototype.render= function(){
 
-        document.write(`${this.fullName}&&${this.Salary}`);
+        document.write(`employee name:${this.fullName}<br> employee salary:${this.Salary}`);
         Ghazi.render();
         Lana.render();
         Tamara.render();
@@ -51,10 +51,10 @@ Employee.prototype.salaryLevel= function() {
 
       }
 
-      let Ghazi =new Employee ("1000","Ghazi Samer","Administration","img","level");
-      let Lana =new Employee ("1001","Lana Ali","Finance","img","level");
-      let Tamara=new Employee ("1002","Tamara Ayoub","Marketing","img","level");
-      let Safi=new Employee ("1003","Safi Walid","Administration","img","level");
-      let Omar =new Employee ("1004","Omar Zaid","Development","img","level");
-      let Rana=new Employee ("1005","Rana Saleh","Development","img","level");
-      let Hadi =new Employee ("1006","Hadi Ahmad","Finance","img","level");
+      let Ghazi =new Employee (1000,"Ghazi Samer","Administration","img","Senior");
+      let Lana =new Employee (1001,"Lana Ali","Finance","img","Senior");
+      let Tamara=new Employee (1002,"Tamara Ayoub","Marketing","img","Senior");
+      let Safi=new Employee (1003,"Safi Walid","Administration","img","Mid-senior");
+      let Omar =new Employee (1004,"Omar Zaid","Development","img","Senior");
+      let Rana=new Employee (1005,"Rana Saleh","Development","img","Junior");
+      let Hadi =new Employee (1006,"Hadi Ahmad","Finance","img","Mid-senior");
