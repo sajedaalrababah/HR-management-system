@@ -1,12 +1,12 @@
 'use strict';
 let employeeArr=[];
-function Employee(fullName, department, level, img) {
-    this.employeeId =this.employeeId;
+function Employee(employeeId,fullName, department, level, img=null) {
+    this.employeeId =employeeId;
     this.fullName = fullName;
     this.department = department;
     this.level = level;
     this.img = img;
-    this.Salary = 0;
+    this.Salary =Salary;
    
     employeeArr.push(this);
 }
@@ -38,7 +38,8 @@ Employee.prototype.salaryLevel= function() {
 
       Employee.prototype.render= function(){
 
-        document.write(`employee name:${this.fullName}<br> employee salary:${this.Salary}`);
+        document.write(`employee name:${this.fullName}`)
+      document.write(`employee salary:${this.salaryLevel}`);
        
 
 
