@@ -18,22 +18,22 @@ Employee.prototype.salary= function() {
        if ( this.level=="senior"){
         min=1500;
         max=2000;
-        
+        return this.salary;
        }
        else if(this.level=="Mid-senior"){
         min=1000;
         max=1500;
-       
+       return this.salary;
        }
     
        else if(this.level=="Junior"){
         min=500;
         max=1000;
-        
+        return this.salary;
        }
    
      
-     return this.salary;
+     
 
       }
 
