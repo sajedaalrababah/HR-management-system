@@ -10,10 +10,11 @@ function Employee(employeeId,fullName, department, level, img=null) {
    
     employeeArr.push(this);
 }
-
-Employee.prototype.salaryCla= function(min,max) {
+function salaryyy(min,max) {
     let rand=Math.floor(Math.random() * (max - min) ) + min;
-     this.salary=rand-(rand*0.075);
+     this.salary=rand-(rand*0.075);}
+
+Employee.prototype.salaryCla= function() {
 
        if ( this.level=="senior"){
         min=1500;
@@ -63,7 +64,7 @@ Employee.prototype.salaryCla= function(min,max) {
     //   Rana.render();
     //   Hadi.render();
 
-    for(i=0;i<employeeArr.length;i++){
-        employeeArr[i].salary();
+    for( let i=0;i<employeeArr.length;i++){
+        employeeArr[i].salaryCla();
         employeeArr[i].render();
     }
