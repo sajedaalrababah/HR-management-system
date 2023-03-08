@@ -47,7 +47,7 @@ Employee.prototype.salaryCla= function(min,max) {
 
 
       }
-      const allemp =[
+  employeeArr =[
      new Employee (1000,"Ghazi Samer","Administration","Senior"),
       new Employee (1001,"Lana Ali","Finance","Senior"),
       new Employee (1002,"Tamara Ayoub","Marketing","Senior"),
