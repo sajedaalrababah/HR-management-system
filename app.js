@@ -11,9 +11,9 @@ function Employee(employeeId,fullName, department, level, img=null) {
     employeeArr.push(this);
 }
 
-Employee.prototype.salary= function() {
+Employee.prototype.salary= function(min,max) {
     let rand=Math.floor(Math.random() * (max - min) ) + min;
-     this.salary=rand-(rand*.075);
+     this.salary=rand-(rand*0.075);
 
        if ( this.level=="senior"){
         min=1500;
@@ -47,18 +47,23 @@ Employee.prototype.salary= function() {
 
 
       }
+      const allemp =[
+     new Employee (1000,"Ghazi Samer","Administration","Senior"),
+      new Employee (1001,"Lana Ali","Finance","Senior"),
+      new Employee (1002,"Tamara Ayoub","Marketing","Senior"),
+      new Employee (1003,"Safi Walid","Administration","Mid-senior"),
+      new Employee (1004,"Omar Zaid","Development","Senior"),
+      new Employee (1005,"Rana Saleh","Development","Junior"),
+    new Employee (1006,"Hadi Ahmad","Finance","Mid-senior")];
+    //   Ghazi.render();
+    //   Lana.render();
+    //   Tamara.render();
+    //   Safi.render();
+    //   Omar.render();
+    //   Rana.render();
+    //   Hadi.render();
 
-      let Ghazi =new Employee (1000,"Ghazi Samer","Administration","Senior");
-      let Lana =new Employee (1001,"Lana Ali","Finance","Senior");
-      let Tamara=new Employee (1002,"Tamara Ayoub","Marketing","Senior");
-      let Safi=new Employee (1003,"Safi Walid","Administration","Mid-senior");
-      let Omar =new Employee (1004,"Omar Zaid","Development","Senior");
-      let Rana=new Employee (1005,"Rana Saleh","Development","Junior");
-      let Hadi =new Employee (1006,"Hadi Ahmad","Finance","Mid-senior");
-      Ghazi.render();
-      Lana.render();
-      Tamara.render();
-      Safi.render();
-      Omar.render();
-      Rana.render();
-      Hadi.render();
+    for(i=0;i<employeeArr.length;i++){
+        employeeArr[i].salary();
+        employeeArr[i].render();
+    }
