@@ -6,33 +6,33 @@ function Employee(employeeId,fullName, department, level, img=null) {
     this.department = department;
     this.level = level;
     this.img = img;
-    
+    this.salary=0;
    
     employeeArr.push(this);
 }
 
-Employee.prototype.salary= function(min,max) {
+Employee.prototype.salaryCla= function(min,max) {
     let rand=Math.floor(Math.random() * (max - min) ) + min;
      this.salary=rand-(rand*0.075);
 
        if ( this.level=="senior"){
         min=1500;
         max=2000;
-        return this.salary;
+        
        }
+       
        else if(this.level=="Mid-senior"){
         min=1000;
         max=1500;
-       return this.salary;
        }
-    
+      
        else if(this.level=="Junior"){
         min=500;
         max=1000;
-        return this.salary;
+        
        }
    
-     
+       return this.salary;
      
 
       }
