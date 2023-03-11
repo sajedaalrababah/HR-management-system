@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home</title>
-   
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
 </head>
 <body>
-    <script src="./app.js"></script>
+   
     <header>
        
         </section>
@@ -21,19 +22,62 @@
     </header>
 
     <main>
+<div>
+    <form id="employeeForm">
+        
+       <fieldset>
+        <label for="fullname">fullName:</label>
+        <input type="text" name="fullname" id="fullname" >
+        <br><br>
 
+        <label for="departmentSelect">department Select:</label>
+        <select id="departmentSelect" name="departmentSelect">
+            <option value="Administration">Administration</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Development">Development</option>
+            <option value="Finance">Finance</option>
+        </select>
+         <br><br>
+
+      
+         <label for=levelSelect>level Select:</label>
+         <select id="levelSelect" name="levelSelect">
+             <option value="Junior">Junior</option>
+             <option value="Mid-Senior">Mid-Senior</option>
+             <option value="Senior">Senior</option>
+         </select>
+         <br><br>
+
+
+
+         <label for="imgUrl">Image</label>
+         <input type="text" name="imgUrl" id="imgUrl" placeholder="imgpath">
+         <br><br>
+         <input type="submit" value="submit">
+        </fieldset>
+    </form>
+</div>
+    <section id="sec"> 
+
+        <div id ="card">
+
+        </div>
+    </section>
+   
     </main>
 
 
     <footer>
         <div id="copy-rights">
-            <p> @copy-rights</p>
+            <p> @copy-rights reserved by Sajeda<br></p>
         </div>
         <div id="media">
-            <p>Follow Us</p>
-            <i class="facebook"></i>
-            <i class="instagram"></i>
+            <p>Follow Us :          </p>
+            
+            <i class="facebook">facebook  </i>
+            <i class="instagram">instagram</i>
         </div>
     </footer>
+    <script src="./app.js"></script>
 </body>
 </html>
