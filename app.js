@@ -79,7 +79,6 @@ function Employee(employeeId,fullName, department, level, img) {
     let employeeForm = document.getElementById("employeeForm");
 
     
-
     employeeForm.addEventListener('submit', employeeHandler);
     function employeeHandler(event) {
         event.preventDefault();
@@ -90,6 +89,8 @@ function Employee(employeeId,fullName, department, level, img) {
         let newEmployee = new Employee(id,fullname, departmentSelect, levelSelect, imgPath);
         console.log(newEmployee);
         newEmployee.render()
+        employeeForm.style.border="10px"
+        employeeForm.style.position="center"
     }
 
 
@@ -100,27 +101,36 @@ function Employee(employeeId,fullName, department, level, img) {
         }
         
         Employee.prototype.render= function(){
-        let divEl = document.getElementById('cards');
-       
+        let container= document.getElementById('card');
+         let divEl= document.createElement('div')
+          container.appendChild(divEl)
+          
+         container.style.backgroundColor="#457556";
+         container.style.width="220px";
+         container.style.padding="10px";
+         container.style.color="green";
+         container.style.color="green";
+         
+         
         let imgEl = document.createElement('img');
         imgEl.src=this.img;
-        sectionEl.appendChild(imgEl);
+        container.appendChild(imgEl);
        
 
         let nameEl = document.createElement('h3');
         nameEl.textContent = (`Name:${this.fullName}`);
-        sectionEl.appendChild(nameEl);
+        container.appendChild(nameEl);
         
       
         let idEl =  document.createElement('p');
         idEl.textContent = (`Id:${this.employeeId}`);
-        sectionEl.appendChild( idEl);
+        container.appendChild( idEl);
 
 
 
        let departmentEl = document.createElement('p');
         departmentEl.textContent = (`Department:${this.department}-level:${this.level} `);
-        sectionEl.appendChild(departmentEl);
+       container.appendChild(departmentEl);
     
        
        
@@ -129,14 +139,11 @@ function Employee(employeeId,fullName, department, level, img) {
         imgEl.width = "150";
         imgEl.height = "150";
      
-        
-    
-       
-        
-    
+      
     }
     for( let i=0;i<employeeArr.length;i++){
         employeeArr[i].salaryCla();
         employeeArr[i].render();
         employeeArr[i].uniqueId();
+       
     };
