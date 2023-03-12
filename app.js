@@ -77,22 +77,26 @@ function Employee(employeeId,fullName, department, level, img) {
     let body = document.getElementsByTagName("body");
     let sectionEl =document.getElementById("sec");
     let employeeForm = document.getElementById("employeeForm");
+
+    
+
     employeeForm.addEventListener('submit', employeeHandler);
     function employeeHandler(event) {
         event.preventDefault();
         let fullname = event.target.fullname.value;
         let departmentSelect = event.target.departmentSelect.value;
-        let levelselect = event.target.levelselect.value;
+        let levelSelect = event.target.levelSelect.value;
         let imgPath = event.target.imgUrl.value;
-        let newEmployee = new Employee(fullname, departmentSelect, levelselect, imgPath);
+        let newEmployee = new Employee(id,fullname, departmentSelect, levelSelect, imgPath);
         console.log(newEmployee);
+        newEmployee.render()
     }
 
 
         let id = 1000;
         Employee.prototype.uniqueId = function () {
             this.employeeId = id++;
-            return this.employeeId ;
+          
         }
         
         Employee.prototype.render= function(){
