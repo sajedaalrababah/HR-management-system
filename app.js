@@ -1,39 +1,40 @@
 'use strict';
 let employeeArr=[];
-function Employee(employeeId,fullName, department, level, img) {
+function Employee(employeeId,fullName, department, level, img,salary) {
     this.employeeId =employeeId;
     this.fullName = fullName;
     this.department = department;
     this.level = level;
     this.img = img;
+    this.salary=salary;
     
    
     employeeArr.push(this);
 }
     
     
-  Employee.prototype.salaryCla=function(){
+   function salaryCla(level){
     let min;
     let max;
-       if ( this.level=="Senior"){
+       if ( level=="Senior"){
         min=1500;
         max=2000;
        }
        
-       else if(this.level=="Mid-senior"){
+       else if(level=="Mid-senior"){
         min=1000;
         max=1500;
        }
       
-       else if(this.level=="Junior"){
+       else if(level=="Junior"){
         min=500;
         max=1000;
         
        }
 
        let rand=Math.floor(Math.random() * (max - min) ) + min;
-       this.salary=rand-(rand*0.075);
-       return this.salary;
+       let salary=rand-(rand*0.075);
+       return salary;
      
 
       }
@@ -52,13 +53,13 @@ function Employee(employeeId,fullName, department, level, img) {
 
       
       employeeArr =[
-     new Employee (1000,"Ghazi Samer","Administration","Senior","../assets/Ghazi.jpg"),
-      new Employee (1001,"Lana Ali","Finance","Senior","../assets/Lana.jpg"),
-      new Employee (1002,"Tamara Ayoub","Marketing","Senior","../assets/Tamara.jpg"),
-      new Employee (1003,"Safi Walid","Administration","Mid-senior","../assets/Safi.jpg"),
-      new Employee (1004,"Omar Zaid","Development","Senior","../assets/Omar.jpg"),
-      new Employee (1005,"Rana Saleh","Development","Junior",'../assets/Rana.jpg'),
-      new Employee (1006,"Hadi Ahmad","Finance","Mid-senior","../assets/Hadi.jpg")];
+     new Employee (1000,"Ghazi Samer","Administration","Senior","https://raw.githubusercontent.com/LTUC/amman-prep-d10/main/Class-08/lab/assets/Ghazi.jpg" ),
+      new Employee (1001,"Lana Ali","Finance","Senior","https://raw.githubusercontent.com/LTUC/amman-prep-d10/main/Class-08/lab/assets/Lana.jpg"),
+      new Employee (1002,"Tamara Ayoub","Marketing","Senior","https://raw.githubusercontent.com/LTUC/amman-prep-d10/main/Class-08/lab/assets/Tamara.jpg"),
+      new Employee (1003,"Safi Walid","Administration","Mid-senior","https://raw.githubusercontent.com/LTUC/amman-prep-d10/main/Class-08/lab/assets/Safi.jpg"),
+      new Employee (1004,"Omar Zaid","Development","Senior","https://raw.githubusercontent.com/LTUC/amman-prep-d10/main/Class-08/lab/assets/Omar.jpg"),
+      new Employee (1005,"Rana Saleh","Development","Junior",'https://raw.githubusercontent.com/LTUC/amman-prep-d10/main/Class-08/lab/assets/Rana.jpg'),
+      new Employee (1006,"Hadi Ahmad","Finance","Mid-senior","https://raw.githubusercontent.com/LTUC/amman-prep-d10/main/Class-08/lab/assets/Hadi.jpg")];
     //   Ghazi.render();
     //   Lana.render();
     //   Tamara.render();
@@ -86,19 +87,22 @@ function Employee(employeeId,fullName, department, level, img) {
         let departmentSelect = event.target.departmentSelect.value;
         let levelSelect = event.target.levelSelect.value;
         let imgPath = event.target.imgUrl.value;
-        let newEmployee = new Employee(id,fullname, departmentSelect, levelSelect, imgPath);
+        let salary=salaryCla(levelSelect);
+        
+        let newEmployee = new Employee(uniqueId(),fullname, departmentSelect, levelSelect, imgPath,salary);
         console.log(newEmployee);
+        
         newEmployee.render()
         employeeForm.style.border="10px"
         employeeForm.style.position="center"
     }
+        
+   
+     function uniqueId () {
+        return parseInt(Math.ceil(Math.random() * Date.now()).toPrecision(4).toString().replace(".", ""));
 
-
-        let id = 1000;
-        Employee.prototype.uniqueId = function () {
-            this.employeeId = id++;
-          
-        }
+    }; 
+   
         
         Employee.prototype.render= function(){
         let container= document.getElementById('card');
@@ -123,7 +127,7 @@ function Employee(employeeId,fullName, department, level, img) {
         
       
         let idEl =  document.createElement('p');
-        idEl.textContent = (`Id:${this.employeeId}`);
+        idEl.textContent = (`Id:${uniqueId()}`);
         container.appendChild( idEl);
 
 
@@ -133,8 +137,9 @@ function Employee(employeeId,fullName, department, level, img) {
        container.appendChild(departmentEl);
     
        
-       
-        
+       let salaryEl = document.createElement('p');
+      salaryEl.textContent = (`salary: ${salaryCla(this.level)}`); 
+       container.appendChild( salaryEl);
         
         imgEl.width = "150";
         imgEl.height = "150";
@@ -142,8 +147,10 @@ function Employee(employeeId,fullName, department, level, img) {
       
     }
     for( let i=0;i<employeeArr.length;i++){
-        employeeArr[i].salaryCla();
+       
         employeeArr[i].render();
-        employeeArr[i].uniqueId();
+        
+       
+       
        
     };
