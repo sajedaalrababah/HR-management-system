@@ -92,7 +92,8 @@ function Employee(employeeId,fullName, department, level, img,salary) {
         let newEmployee = new Employee(uniqueId(),fullname, departmentSelect, levelSelect, imgPath,salary);
         console.log(newEmployee);
         
-        newEmployee.render()
+        newEmployee.render();
+        saveData(employeeArr);
         employeeForm.style.border="10px"
         employeeForm.style.position="center"
     }
@@ -109,11 +110,12 @@ function Employee(employeeId,fullName, department, level, img,salary) {
          let divEl= document.createElement('div')
           container.appendChild(divEl)
           
-         container.style.backgroundColor="#457556";
+         container.style.backgroundColor="#458544";
          container.style.width="220px";
          container.style.padding="10px";
          container.style.color="green";
          container.style.color="green";
+         
          
          
         let imgEl = document.createElement('img');
@@ -141,16 +143,41 @@ function Employee(employeeId,fullName, department, level, img,salary) {
       salaryEl.textContent = (`salary: ${salaryCla(this.level)}`); 
        container.appendChild( salaryEl);
         
-        imgEl.width = "150";
-        imgEl.height = "150";
+        imgEl.width = "10px";
+        imgEl.height = "15px";
+
+
+       
      
       
     }
+    function renderall(){
     for( let i=0;i<employeeArr.length;i++){
        
         employeeArr[i].render();
         
-       
+    }
        
        
     };
+    function saveData(data) {
+
+        let stringfiyData = JSON.stringify(data);
+        localStorage.setItem("employe", stringfiyData);
+      }
+      console.log(localStorage);
+
+
+      function getData() {
+
+        let retrievedData = localStorage.getItem("employe");
+        let arrayData = JSON.parse(retrievedData);
+        if (arrayData != null) {
+        for (let i = 0; i < arrayData.length; i++) {
+
+            new Employee(arrayData[i].employeeId, arrayData[i].fullName, arrayData[i].department, arrayData[i].level, arrayData[i].img, arrayData[i].salary);
+      
+          }}
+         renderall();
+      }
+      getData();
