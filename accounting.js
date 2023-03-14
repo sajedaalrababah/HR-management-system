@@ -1,31 +1,19 @@
 'use strict'
-let account=localStorage.getItem('Info');
-function readFromLocal() {                         
-    let jsonArray = localStorage.getItem('allEmployees');
-    let arr = JSON.parse(jsonArray);
-    if (arr !== null)
-        return arr;
-    else
-        return [];
-}
+let retrievedData = localStorage.getItem("employe");
+let arrayData = JSON.parse(retrievedData);
 
 let tableEl =document.getElementById("table");
 
-let sum ;
-let avg;
-getData();
-avg = sum /length
 
+let allDepartments=[];
 
-
-
-function Employee(department, employeesNum, totalSalary, averge){
+function Employee(department, employeesNum, totalSalary, avgSalary){
     this.department = department;
     this.employeesNum = employeesNum;
     this.totalSalary = totalSalary;
-    this.avgSalary = averge;
+    this.avgSalary =avgSalary();
 
-    allEmployee.push(this);
+    allDepartments.push(this);
     };
 
 Employee.prototype.renderTable=function(){
@@ -51,27 +39,39 @@ Employee.prototype.renderTable=function(){
     tr.appendChild(avgSalaryEl);
 
 
+    new Employee(depName, employeCountEl, totalSalary, avgSalary);
 
 
 }
 
 
-
-/*function avgSalary() {
+function avgSalary() {
     let newSalary = 0;
     let avg = 0;
-    for (let i = 0; i < allEmployee.length; i++) {
+    for (let i = 0; i < allDepartments.length; i++) {
         newSalary += this.salary;
     }
-    avg = newSalary/allEmployee.length;
+    avg = newSalary/allDepartments.length;
     return avg;
     }
 
 
+
+    function totalSalary (){
+        for(let i=0; i<allDepartments.length;i++); 
+    }
+   
+        
+    
+
+
+
+
+
 function renderall(){
-    for( let i=0;i<employeeArr.length;i++){
+    for( let i=0;i<allDepartments.length;i++){
        
-        employeeArr[i].renderTable();
+        allDepartments[i].renderTable();
         
     }
 

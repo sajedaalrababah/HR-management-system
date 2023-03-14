@@ -59,7 +59,7 @@ function Employee(employeeId,fullName, department, level, img,salary) {
       new Employee (1003,"Safi Walid","Administration","Mid-senior","https://raw.githubusercontent.com/LTUC/amman-prep-d10/main/Class-08/lab/assets/Safi.jpg"),
       new Employee (1004,"Omar Zaid","Development","Senior","https://raw.githubusercontent.com/LTUC/amman-prep-d10/main/Class-08/lab/assets/Omar.jpg"),
       new Employee (1005,"Rana Saleh","Development","Junior",'https://raw.githubusercontent.com/LTUC/amman-prep-d10/main/Class-08/lab/assets/Rana.jpg'),
-      new Employee (1006,"Hadi Ahmad","Finance","Mid-senior","https://raw.githubusercontent.com/LTUC/amman-prep-d10/main/Class-08/lab/assets/Hadi.jpg")];
+      new Employee (1006,"Hadi Ahmad","Finance","Mid-senior","https://raw.githubusercontent.com/LTC/amman-prep-d10/main/Class-08/lab/assets/Hadi.jpg")];
     //   Ghazi.render();
     //   Lana.render();
     //   Tamara.render();
@@ -107,54 +107,49 @@ function Employee(employeeId,fullName, department, level, img,salary) {
         
         Employee.prototype.render= function(){
         let container= document.getElementById('card');
-         let divEl= document.createElement('div')
-          container.appendChild(divEl)
-          
-         container.style.backgroundColor="#458544";
-         container.style.width="220px";
-         container.style.padding="10px";
-         container.style.color="green";
-         container.style.color="green";
-         
-         
-         
+        const div= document.createElement("div");
+  
+
+
         let imgEl = document.createElement('img');
         imgEl.src=this.img;
-        container.appendChild(imgEl);
+        div.appendChild(imgEl);
+        
        
 
         let nameEl = document.createElement('h3');
         nameEl.textContent = (`Name:${this.fullName}`);
-        container.appendChild(nameEl);
+        div.appendChild(nameEl);
         
       
         let idEl =  document.createElement('p');
         idEl.textContent = (`Id:${uniqueId()}`);
-        container.appendChild( idEl);
+       div.appendChild( idEl);
 
 
 
        let departmentEl = document.createElement('p');
         departmentEl.textContent = (`Department:${this.department}-level:${this.level} `);
-       container.appendChild(departmentEl);
+        div.appendChild(departmentEl);
     
        
        let salaryEl = document.createElement('p');
       salaryEl.textContent = (`salary: ${salaryCla(this.level)}`); 
-       container.appendChild( salaryEl);
+      div.appendChild( salaryEl);
         
         imgEl.width = "10px";
         imgEl.height = "15px";
 
-
+        container.appendChild(div)
        
-     
+       
       
     }
     function renderall(){
     for( let i=0;i<employeeArr.length;i++){
        
         employeeArr[i].render();
+
         
     }
        
