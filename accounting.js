@@ -1,48 +1,43 @@
 'use strict'
-let retrievedData = localStorage.getItem("employe");
-let arrayData = JSON.parse(retrievedData);
 
+let acc = localStorage.getItem("info");
 let tableEl =document.getElementById("table");
 
+let objArr= JSON.parse(acc);
 
-let allDepartments=[];
+console.log(localStorage);
 
-function Employee(department, employeesNum, totalSalary, avgSalary){
-    this.department = department;
-    this.employeesNum = employeesNum;
-    this.totalSalary = totalSalary;
-    this.avgSalary =avgSalary();
 
-    allDepartments.push(this);
-    };
 
-Employee.prototype.renderTable=function(){
+
+
 
     let trEl=document.createElement('tr');
     tableEl.appendChild(trEl);
 
     let depName = document.createElement("td");
     depName.textContent = this.department
-    tr.appendChild(depName);
+    trEl.appendChild(depName);
 
     let employeCountEl = document.createElement("td");
     employeCountEl.textContent = this.employeesNum;
-    tr.appendChild(employeCountEl);
+    trEl.appendChild(employeCountEl);
 
 
     let totSalaryEl = document.createElement("td");
     totSalaryEl.textContent = this.totalSalary;
-    tr.appendChild(totSalaryEl);
+    trEl.appendChild(totSalaryEl);
 
     let avgSalaryEl = document.createElement("td");
     avgSalaryEl.textContent = this.averge;
-    tr.appendChild(avgSalaryEl);
+    trEl.appendChild(avgSalaryEl);
 
 
     new Employee(depName, employeCountEl, totalSalary, avgSalary);
+ allDepartments.renderTable() ;
 
 
-}
+
 
 
 function avgSalary() {
@@ -58,11 +53,14 @@ function avgSalary() {
 
 
     function totalSalary (){
-        for(let i=0; i<allDepartments.length;i++); 
+        let sum=0
+        for(let i=0; i<allDepartments.length;i++); {
+        sum+=allDepartments[i].totSalaryEl;
     }
-   
-        
     
+   
+      return sum;  
+}
 
 
 
