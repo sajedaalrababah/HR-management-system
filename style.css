@@ -29,12 +29,22 @@ flex-wrap: wrap;
     
 
   }
+  footer a{
+
+    display: inline-block;
+    margin: 10px 10px;
+    font-size: 17px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  
+  }
 
   main{
    
-    display:flex;
-    flex-wrap: wrap;
-    
+   display: flex;
+   flex-wrap: wrap;
+    justify-content: space-around;
     background-color: #0e3031;
   }
   header{
@@ -78,12 +88,16 @@ main form{
 
 
 
-.card{
+#card{
  display: flex;
-  width: 250px;
-background-color: aliceblue;
-flex-flow: wrap;
+ flex-flow: wrap;
+ justify-content: space-between;
+background-color: rgb(64, 120, 55);
+
+
 }
 .media{
   display: flex;
+
 }
+
